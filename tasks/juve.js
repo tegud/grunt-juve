@@ -9,6 +9,7 @@
 'use strict';
 
 var juve = require('juve');
+var Runner = require('../lib/juve-runner');
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('juve', 'Grunt plugin to execute juve (assertions for Phantomas) and act upon the results, e.g beacon out, write to log, etc.', function () {

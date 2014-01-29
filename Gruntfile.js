@@ -16,7 +16,8 @@ module.exports = function (grunt) {
       all: [
         'Gruntfile.js',
         'tasks/*.js',
-        '<%= nodeunit.tests %>'
+        'lib/*.js',
+        'tests/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
@@ -26,7 +27,7 @@ module.exports = function (grunt) {
     mochacli: {
       src: ['test/**/*.js'],
         options: {
-          timeout: 6000,
+          timeout: 4000,
           ignoreLeaks: false,
           ui: 'bdd',
           reporter: 'spec'
@@ -44,9 +45,9 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['mochacli']);
+  grunt.registerTask('test', ['jshint', 'mochacli']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['juve']);
 
 };

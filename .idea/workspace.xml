@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ad31bfc-e567-4bd7-b495-2a1278c184c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/grunt-juve.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/TestHttpServer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/lib/TestReporter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/juve-runner.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/juve-runner.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/juve-runner.js" afterPath="$PROJECT_DIR$/lib/juve-runner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/juve-runner.js" afterPath="$PROJECT_DIR$/test/juve-runner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tasks/juve.js" afterPath="$PROJECT_DIR$/tasks/juve.js" />
     </list>
     <ignored path="grunt-juve.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,25 +40,25 @@
       <file leaf-file-name="juve-runner.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/juve-runner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="60" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1207">
+            <state line="36" column="30" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1207">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="juve-runner.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="juve-runner.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/juve-runner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="25" selection-start="734" selection-end="734" vertical-scroll-proportion="0.5707071" vertical-offset="1" max-vertical-offset="595">
+            <state line="10" column="53" selection-start="292" selection-end="293" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <file leaf-file-name="juve.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tasks/juve.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="14" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="986">
+            <state line="11" column="18" selection-start="161" selection-end="161" vertical-scroll-proportion="0.28451177" vertical-offset="18" max-vertical-offset="629">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -74,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="juve.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/juve.js">
+      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="2" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="612">
+            <state line="18" column="12" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="1003">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -99,12 +91,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/tasks/juve.js" />
         <option value="$PROJECT_DIR$/test/TestHttpServer.js" />
-        <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/lib/juve-runner.js" />
         <option value="$PROJECT_DIR$/test/lib/TestReporter.js" />
+        <option value="$PROJECT_DIR$/lib/juve-runner.js" />
         <option value="$PROJECT_DIR$/test/juve-runner.js" />
+        <option value="$PROJECT_DIR$/tasks/juve.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
       </list>
     </option>
   </component>
@@ -345,33 +337,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/juve-runner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="60" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1207">
+        <state line="36" column="30" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1207">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/juve.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="2" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="612">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="14" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="986">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/juve-runner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="25" selection-start="734" selection-end="734" vertical-scroll-proportion="0.5707071" vertical-offset="1" max-vertical-offset="595">
+        <state line="10" column="53" selection-start="292" selection-end="293" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="12" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="1003">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/juve.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="18" selection-start="161" selection-end="161" vertical-scroll-proportion="0.28451177" vertical-offset="18" max-vertical-offset="629">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
