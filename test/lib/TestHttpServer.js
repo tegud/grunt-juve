@@ -5,15 +5,21 @@
     module.exports = function(options) {
         var app;
         var server;
-        var response;
+        var responses = {};
+
+        function setUpRoute(route, initialData) {
+            responses[route] = initialData;
+
+            app.get(route, function(req, res) {
+                res.send(responses[route]);
+            });
+        }
 
         return {
             start: function(callback) {
                 app = express();
 
-                app.get('/', function(req, res) {
-                    res.send(response);
-                });
+                setUpRoute('/', '');
 
                 server = app.listen(8000, function() {
                     if (callback) {
@@ -24,8 +30,15 @@
             stop: function() {
                 server.close();
             },
-            setResponse: function(newResponse) {
-                response = newResponse;
+            setResponse: function(newResponse, route) {
+                route = route || '/';
+
+                if(responses[route]) {
+                    responses[route] = newResponse;
+                }
+                else {
+                    setUpRoute(route, newResponse);
+                }
             }
         };
     };

@@ -27,7 +27,7 @@ module.exports = function (grunt) {
     mochacli: {
       src: ['test/**/*.js'],
         options: {
-          timeout: 4000,
+          timeout: 10000,
           ignoreLeaks: false,
           ui: 'bdd',
           reporter: 'spec'
