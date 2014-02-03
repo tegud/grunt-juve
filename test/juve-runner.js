@@ -21,9 +21,7 @@
         describe('execute runs', function() {
             describe('when no tests have been configured', function() {
                 it('true is returned once complete', function(done) {
-                    var runner = new Runner(grunt, {
-                        tests: []
-                    }).execute().then(function(result) {
+                    new Runner(grunt).execute().then(function(result) {
                         expect(result).to.be(true);
                         done();
                     });

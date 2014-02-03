@@ -34,8 +34,15 @@ module.exports = function (grunt) {
         }
     },
     juve: {
-      'to-console': {
-        options: { }
+      'tegud': {
+        options: {
+            tests: [{
+                url: 'http://www.tegud.net',
+                assertions: {
+                    htmlSize: 10
+                }
+            }]
+        }
       }
     }
   });
