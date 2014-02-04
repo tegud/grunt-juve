@@ -9,6 +9,7 @@
 'use strict';
 
 var Runner = require('../lib/juve-runner');
+var _ = require('lodash');
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('juve', 'Grunt plugin to execute juve (assertions for Phantomas) and act upon the results, e.g beacon out, write to log, etc.', function () {
@@ -28,6 +29,9 @@ module.exports = function (grunt) {
       }
       else if(fails) {
         grunt.log.error(results.url + ' failed, ' + fails + ' of ' + total + ' ' + grunt.util.pluralize(total, 'assertion/assertions') + ' failed.');
+          _.each(results.fail, function(fail) {
+              console.log('' + fail + '');
+          });
       }
       else {
         grunt.log.ok(results.url + ' passed, ' + total + ' ' + (grunt.util.pluralize(total, 'assertion/assertions')) + ' passed.');
