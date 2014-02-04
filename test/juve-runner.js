@@ -3,7 +3,6 @@
     var Runner = require('../lib/juve-runner');
     var expect = require('expect.js');
     var TestServer = require('./lib/TestHttpServer');
-    var TestReporter = require('./lib/TestReporter');
     var grunt = require('grunt');
     var _ = require('lodash');
 
