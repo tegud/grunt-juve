@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ad31bfc-e567-4bd7-b495-2a1278c184c3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/grunt-juve.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-    </list>
+    <list default="true" id="7ad31bfc-e567-4bd7-b495-2a1278c184c3" name="Default" comment="" />
     <ignored path="grunt-juve.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,7 +38,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.6624549" vertical-offset="347" max-vertical-offset="935">
+            <state line="35" column="7" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.44765344" vertical-offset="347" max-vertical-offset="935">
               <folding />
             </state>
           </provider>
@@ -399,7 +390,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.6624549" vertical-offset="347" max-vertical-offset="935">
+        <state line="35" column="7" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.44765344" vertical-offset="347" max-vertical-offset="935">
           <folding />
         </state>
       </provider>
