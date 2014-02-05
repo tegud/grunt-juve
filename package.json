@@ -1,7 +1,7 @@
 {
   "name": "grunt-juve",
   "version": "0.0.2",
-  "description": "Grunt plugin to execute juve (assertions for Phantomas) and act upon the results, e.g beacon out, write to log, etc.",
+  "description": "Grunt plugin to execute juve (assertions for Phantomas) performance tests and act upon the results, e.g beacon out, write to log, etc.",
   "homepage": "",
   "repository": {
     "type": "git",
@@ -34,7 +34,8 @@
     "load-grunt-tasks": "~0.2.0",
     "jshint-stylish": "~0.1.3",
     "expect.js": "~0.2.0",
-    "express": "~3.4.8"
+    "express": "~3.4.8",
+    "proxyquire": "~0.5.2"
   },
   "scripts": {
     "test": "grunt test"
