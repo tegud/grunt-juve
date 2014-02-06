@@ -19,13 +19,13 @@ module.exports = function (grunt) {
         reporters: [],
         tests: []
     });
-    var runner = new Runner(grunt, options);
+    var runner = new Runner(grunt);
 
     grunt.log.subhead('Executing Juve for ' + (options.tests.length) + ' ' + grunt.util.pluralize(options.tests.length, 'url/urls') + '...');
 
     new BasicReporter(grunt, runner);
 
-    runner.execute().then(function(result) {
+    runner.execute(options).then(function(result) {
       if(result) {
         grunt.log.ok('All performance tests passes.');
       }

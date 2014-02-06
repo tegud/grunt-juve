@@ -1,6 +1,17 @@
 (function () {
     'use strict';
-    var Runner = require('../lib/juve-runner');
+    var config;
+    var proxyquire = require('proxyquire');
+    var Runner =
+        proxyquire('../lib/juve-runner', {
+            './configurationLoader': function() {
+                return {
+                    load: function(inputConfig) {
+                        return config || inputConfig;
+                    }
+                };
+            }
+        });
     var expect = require('expect.js');
     var TestServer = require('./lib/TestHttpServer');
     var grunt = require('grunt');
@@ -31,15 +42,23 @@
                 it('uses the test url returned from the configurationLoader', function(done) {
                     var runner = new Runner(grunt);
                     var actualUrl;
-                    var expectedUrl = 'http://someUrl.com';
+                    var expectedUrl = 'http://localhost:8000/';
 
                     runner.on('testResult', function(results) {
                         actualUrl = results.url;
                     });
 
+                    config = {
+                        tests: [
+                            {
+                                url: expectedUrl
+                            }
+                        ]
+                    };
+
                     runner.execute({
                         file: 'override.json'
-                    }).then(function(result) {
+                    }).then(function() {
                         expect(actualUrl).to.be(expectedUrl);
                         done();
                     });
@@ -51,6 +70,7 @@
                 var runner;
 
                 before(function(done) {
+                    config = false;
                     allResults = [];
                     runner = new Runner(grunt);
 
