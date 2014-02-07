@@ -69,6 +69,20 @@
                         });
                     });
                 });
+
+                describe('and the configuration file is invalid json', function() {
+                    it('returns an error as first argument', function(done) {
+                        new ConfigurationLoader().load({
+                            file: '../test/config/invalid.json'
+                        }, function(err, config) {
+                            expect(err).to.eql({
+                                message: 'File did not contain valid json',
+                                file: '../test/config/invalid.json'
+                            });
+                            done();
+                        });
+                    });
+                });
             });
         });
     });

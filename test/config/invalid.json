@@ -1,0 +1,10 @@
+{
+    "tests": [
+        {
+            "url": "http://www.g,
+            "assertions": {
+                "htmlSize": 101
+            }
+        }
+    ]
+}
