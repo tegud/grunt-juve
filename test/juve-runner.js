@@ -6,8 +6,8 @@
         proxyquire('../lib/juve-runner', {
             './configurationLoader': function() {
                 return {
-                    load: function(inputConfig) {
-                        return config || inputConfig;
+                    load: function(inputConfig, callback) {
+                        callback(config || inputConfig);
                     }
                 };
             }

@@ -15,23 +15,10 @@ var _ = require('lodash');
 module.exports = function (grunt) {
   grunt.registerMultiTask('juve', 'Grunt plugin to execute juve (assertions for Phantomas) and act upon the results, e.g beacon out, write to log, etc.', function () {
     var done = this.async();
-    var options = this.options({
-        reporters: [],
-        tests: []
-    });
     var runner = new Runner(grunt);
 
     new BasicReporter(grunt, runner);
 
-    runner.execute(options).then(function(result) {
-      if(result) {
-        grunt.log.ok('All performance tests passes.');
-      }
-      else {
-        grunt.fail.warn('Performance tests failed.');
-      }
-
-      done();
-    });
+    runner.execute(this.options()).then(done);
   });
 };
