@@ -14,7 +14,7 @@
 
             describe('and an empty configuration is provided', function() {
                 it('then sets an empty array of tests', function(done) {
-                    new ConfigurationLoader().load({}, function(config) {
+                    new ConfigurationLoader().load({}, function(err, config) {
                         expect(config.tests).to.eql([]);
                         done();
                     });
@@ -27,7 +27,7 @@
                         tests: [{ a: 12345 }]
                     };
 
-                    new ConfigurationLoader().load(expectedConfiguration, function(config) {
+                    new ConfigurationLoader().load(expectedConfiguration, function(err, config) {
                         expect(config).to.eql(expectedConfiguration);
                         done();
                     });
@@ -39,7 +39,7 @@
                     it('uses the configuration from the file', function(done) {
                         new ConfigurationLoader().load({
                             file: '../test/config/test.json'
-                        }, function(config) {
+                        }, function(err, config) {
                             expect(config).to.eql({
                                 file: '../test/config/test.json',
                                 tests: [
@@ -50,6 +50,20 @@
                                         }
                                     }
                                 ]
+                            });
+                            done();
+                        });
+                    });
+                });
+
+                describe('and the configuration file is not present', function() {
+                    it('returns an error as first argument', function(done) {
+                        new ConfigurationLoader().load({
+                            file: '../test/config/testNotThere.json'
+                        }, function(err, config) {
+                            expect(err).to.eql({
+                                message: 'Could not find specified file',
+                                file: '../test/config/testNotThere.json'
                             });
                             done();
                         });

@@ -7,7 +7,7 @@
             './configurationLoader': function() {
                 return {
                     load: function(inputConfig, callback) {
-                        callback(config || inputConfig);
+                        callback(undefined, config || inputConfig);
                     }
                 };
             }
