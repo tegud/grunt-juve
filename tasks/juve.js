@@ -21,8 +21,6 @@ module.exports = function (grunt) {
     });
     var runner = new Runner(grunt);
 
-    grunt.log.subhead('Executing Juve for ' + (options.tests.length) + ' ' + grunt.util.pluralize(options.tests.length, 'url/urls') + '...');
-
     new BasicReporter(grunt, runner);
 
     runner.execute(options).then(function(result) {

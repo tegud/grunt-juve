@@ -29,11 +29,40 @@
         });
 
         describe('execute', function() {
+            describe('given testRunBegin event is emitted', function() {
+                it('then options from configurationLoader are provided', function(done) {
+                    var expectedOptions = { abcd: 1234, tests: [] };
+                    var runner = new Runner(grunt);
+
+                    config = expectedOptions;
+
+                    runner.on('testRunBegin', function(options) {
+                        expect(options).to.be(expectedOptions);
+                        done();
+                    });
+
+                    runner.execute();
+                });
+            });
+
             describe('given no tests have been configured', function() {
                 it('then true is returned once complete', function(done) {
                     new Runner(grunt).execute().then(function(result) {
                         expect(result).to.be(true);
                         done();
+                    });
+                });
+
+                describe('and testRunComplete event is emitted', function() {
+                    it('then true is provided', function(done) {
+                        var runner = new Runner(grunt);
+
+                        runner.on('testRunComplete', function(result) {
+                            expect(result).to.be(true);
+                            done();
+                        });
+
+                        runner.execute();
                     });
                 });
             });
