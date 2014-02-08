@@ -1,5 +1,5 @@
 # juve
-
+[![Build Status](https://travis-ci.org/tegud/grunt-juve.png?branch=master)](https://travis-ci.org/tegud/grunt-juve)
 > Grunt plugin to execute juve (assertions for Phantomas) and act upon the results, e.g beacon out, write to log, etc.
 
 ## Getting Started
