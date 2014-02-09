@@ -37,7 +37,7 @@ module.exports = function (grunt) {
       'tegud': {
         options: {
             tests: [{
-                url: 'http://www.tegud.net',
+                url: 'http://www.gruntjs.com',
                 assertions: {
                     htmlSize: 10
                 }

@@ -1,6 +1,6 @@
 {
   "name": "grunt-juve",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Grunt plugin to execute juve (assertions for Phantomas) performance tests and act upon the results, e.g beacon out, write to log, etc.",
   "homepage": "",
   "repository": {
