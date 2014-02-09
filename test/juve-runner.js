@@ -1,13 +1,14 @@
 (function () {
     'use strict';
     var config;
+    var error;
     var proxyquire = require('proxyquire');
     var Runner =
         proxyquire('../lib/juve-runner', {
             './configurationLoader': function() {
                 return {
                     load: function(inputConfig, callback) {
-                        callback(undefined, config || inputConfig);
+                        callback(error, config || inputConfig);
                     }
                 };
             }
@@ -21,6 +22,8 @@
         var httpServer = new TestServer();
 
         before(function(done) {
+            error = undefined;
+            config = undefined;
             httpServer.start(done);
         });
 
@@ -67,11 +70,46 @@
                 });
             });
 
+            describe('given configurationLoader returns an error', function() {
+                it('then the promise is rejected', function(done) {
+                    var runner = new Runner(grunt);
+
+                    error = {
+                        message: 'Oh dear'
+                    };
+
+                    runner.execute({
+                        file: 'notfound.json'
+                    }).catch(function() {
+                        done();
+                    });
+                });
+
+                it('then an error event is emitted with the error details', function(done) {
+                    var runner = new Runner(grunt);
+
+                    error = {
+                        message: 'Oh dear'
+                    };
+
+                    runner.on('error', function(err) {
+                        expect(err).to.be(error);
+                        done();
+                    });
+
+                    runner.execute({
+                        file: 'notfound.json'
+                    }).catch(function() {});
+                });
+            });
+
             describe('given configurationLoader returns a different config than the one provided', function() {
                 it('uses the test url returned from the configurationLoader', function(done) {
                     var runner = new Runner(grunt);
                     var actualUrl;
                     var expectedUrl = 'http://localhost:8000/';
+
+                    error = undefined;
 
                     runner.on('testResult', function(results) {
                         actualUrl = results.url;
@@ -88,9 +126,9 @@
                     runner.execute({
                         file: 'override.json'
                     }).then(function() {
-                        expect(actualUrl).to.be(expectedUrl);
-                        done();
-                    });
+                            expect(actualUrl).to.be(expectedUrl);
+                            done();
+                        });
                 });
             });
 
@@ -99,7 +137,8 @@
                 var runner;
 
                 before(function(done) {
-                    config = false;
+                    config = undefined;
+                    error = undefined;
                     allResults = [];
                     runner = new Runner(grunt);
 

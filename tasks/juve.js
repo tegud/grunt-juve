@@ -11,6 +11,7 @@
 var Runner = require('../lib/juve-runner');
 var BasicReporter = require('../lib/reporters/grunt-basic');
 var _ = require('lodash');
+var juve = require('juve');
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('juve', 'Grunt plugin to execute juve (assertions for Phantomas) and act upon the results, e.g beacon out, write to log, etc.', function () {
@@ -19,6 +20,6 @@ module.exports = function (grunt) {
 
     new BasicReporter(grunt, runner);
 
-    runner.execute(this.options()).then(done);
+    runner.execute(this.options()).finally(done);
   });
 };
