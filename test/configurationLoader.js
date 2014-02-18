@@ -38,10 +38,10 @@
                 describe('and the configuration is json', function() {
                     it('uses the configuration from the file', function(done) {
                         new ConfigurationLoader().load({
-                            file: '../test/config/test.json'
+                            file: 'test/config/test.json'
                         }, function(err, config) {
                             expect(config).to.eql({
-                                file: '../test/config/test.json',
+                                file: 'test/config/test.json',
                                 tests: [
                                     {
                                         url: "http://www.google.com",
@@ -59,11 +59,11 @@
                 describe('and the configuration file is not present', function() {
                     it('returns an error as first argument', function(done) {
                         new ConfigurationLoader().load({
-                            file: '../test/config/testNotThere.json'
+                            file: 'test/config/testNotThere.json'
                         }, function(err, config) {
                             expect(err).to.eql({
                                 message: 'Could not find specified file',
-                                file: '../test/config/testNotThere.json'
+                                file: 'test/config/testNotThere.json'
                             });
                             done();
                         });
@@ -73,11 +73,11 @@
                 describe('and the configuration file is invalid json', function() {
                     it('returns an error as first argument', function(done) {
                         new ConfigurationLoader().load({
-                            file: '../test/config/invalid.json'
+                            file: 'test/config/invalid.json'
                         }, function(err, config) {
                             expect(err).to.eql({
                                 message: 'File did not contain valid json',
-                                file: '../test/config/invalid.json'
+                                file: 'test/config/invalid.json'
                             });
                             done();
                         });
