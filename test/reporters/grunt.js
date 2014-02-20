@@ -159,10 +159,28 @@
             });
         });
 
-        describe('and the est had one failing assertions', function() {
+        describe('and the test had one failing assertions', function() {
             it('then a message is logged indicating one assertion has failed', function() {
                 var actualMessage;
                 var expectedMessage = 'http://www.google.com failed, 1 assertion failed.';
+                var eventEmitter = new EventEmitter();
+
+                grunt.log.error = function(message) {
+                    if(!actualMessage) {
+                        actualMessage = message;
+                    }
+                };
+
+                new reporter(grunt, eventEmitter);
+
+                eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [{}], pass: [] });
+
+                expect(actualMessage).to.be(expectedMessage);
+            });
+
+            it('then the failing assertion is logged', function() {
+                var actualMessage;
+                var expectedMessage = 'Assertion test failed, expected: 10, was: 15';
                 var eventEmitter = new EventEmitter();
 
                 grunt.log.error = function(message) {
@@ -171,7 +189,56 @@
 
                 new reporter(grunt, eventEmitter);
 
-                eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [{}], pass: [] });
+                eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [{
+                    name: 'test',
+                    expected: 10,
+                    actual: 15
+                }], pass: [] });
+
+                expect(actualMessage).to.be(expectedMessage);
+            });
+        });
+
+
+        describe('and the test had two failing assertions', function() {
+            it('then a message is logged indicating two assertions have failed', function() {
+                var actualMessage;
+                var expectedMessage = 'http://www.google.com failed, 2 assertions failed.';
+                var eventEmitter = new EventEmitter();
+
+                grunt.log.error = function(message) {
+                    if(!actualMessage) {
+                        actualMessage = message;
+                    }
+                };
+
+                new reporter(grunt, eventEmitter);
+
+                eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [{}, {}], pass: [] });
+
+                expect(actualMessage).to.be(expectedMessage);
+            });
+
+            it('then the second failing assertion is logged', function() {
+                var actualMessage;
+                var expectedMessage = 'Assertion test failed, expected: 10, was: 15';
+                var eventEmitter = new EventEmitter();
+
+                grunt.log.error = function(message) {
+                    actualMessage = message;
+                };
+
+                new reporter(grunt, eventEmitter);
+
+                eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [{
+                    name: 'not this one',
+                    expected: 0,
+                    actual: 10
+                },{
+                    name: 'test',
+                    expected: 10,
+                    actual: 15
+                }], pass: [] });
 
                 expect(actualMessage).to.be(expectedMessage);
             });
