@@ -4,7 +4,11 @@
     var expect = require('expect.js');
     var reporter = require('../../lib/reporters/grunt');
     var EventEmitter = require('events').EventEmitter;
-    var grunt = require('grunt');
+    var _ = require('lodash');
+    var grunt = _.extend({
+        fail: {},
+        log: {}
+    }, require('grunt'));
 
     describe('given testRunBegin event is emitted', function() {
         describe('and no tests have been configured', function() {
@@ -74,6 +78,24 @@
                 new reporter(grunt, eventEmitter);
 
                 eventEmitter.emit('error', { message: expectedMessage });
+
+                expect(actualMessage).to.be(expectedMessage);
+            });
+        });
+
+        describe('and two tests has been configured', function() {
+            it('then it writes sub header indicating there are two tests', function() {
+                var actualMessage;
+                var expectedMessage = 'Executing Juve, 2 tests...';
+                var eventEmitter = new EventEmitter();
+
+                grunt.log.subhead = function(message) {
+                    actualMessage = message;
+                };
+
+                new reporter(grunt, eventEmitter);
+
+                eventEmitter.emit('testRunBegin', { tests: [{}, {}] });
 
                 expect(actualMessage).to.be(expectedMessage);
             });
