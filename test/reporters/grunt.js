@@ -126,7 +126,7 @@
         describe('and the test had one passing assertion', function() {
             it('then a message is logged indicating a single assertion has passed', function() {
                 var actualMessage;
-                var expectedMessage = 'http://www.google.com passed, 1 assertion passed.';
+                var expectedMessage = 'http://www.google.com passed, 1 out of 1 assertion passed.';
                 var eventEmitter = new EventEmitter();
 
                 grunt.log.ok = function(message) {
@@ -144,7 +144,7 @@
         describe('and the test had two passing assertions', function() {
             it('then a message is logged indicating two assertions have passed', function() {
                 var actualMessage;
-                var expectedMessage = 'http://www.google.com passed, 2 assertions passed.';
+                var expectedMessage = 'http://www.google.com passed, 2 out of 2 assertions passed.';
                 var eventEmitter = new EventEmitter();
 
                 grunt.log.ok = function(message) {
@@ -162,7 +162,7 @@
         describe('and the test had one failing assertions', function() {
             it('then a message is logged indicating one assertion has failed', function() {
                 var actualMessage;
-                var expectedMessage = 'http://www.google.com failed, 1 assertion failed.';
+                var expectedMessage = 'http://www.google.com failed, 1 out of 1 assertion failed.';
                 var eventEmitter = new EventEmitter();
 
                 grunt.log.error = function(message) {
@@ -203,7 +203,7 @@
         describe('and the test had two failing assertions', function() {
             it('then a message is logged indicating two assertions have failed', function() {
                 var actualMessage;
-                var expectedMessage = 'http://www.google.com failed, 2 assertions failed.';
+                var expectedMessage = 'http://www.google.com failed, 2 out of 2 assertions failed.';
                 var eventEmitter = new EventEmitter();
 
                 grunt.log.error = function(message) {
