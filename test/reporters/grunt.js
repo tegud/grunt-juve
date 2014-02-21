@@ -7,7 +7,10 @@
     var _ = require('lodash');
     var grunt = _.extend({
         fail: {},
-        log: {}
+        log: {},
+        verbose: {
+            ok: function() {}
+        }
     }, require('grunt'));
 
     describe('given testRunBegin event is emitted', function() {
@@ -65,8 +68,6 @@
             });
         });
     });
-
-
 
     describe('given an error is raised', function() {
         it('then it writes error message to the log', function() {
@@ -129,6 +130,8 @@
                 var expectedMessage = 'http://www.google.com passed, 1 out of 1 assertion passed.';
                 var eventEmitter = new EventEmitter();
 
+                grunt.verbose.ok = function() {};
+
                 grunt.log.ok = function(message) {
                     actualMessage = message;
                 };
@@ -136,6 +139,29 @@
                 new reporter(grunt, eventEmitter);
 
                 eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [], pass: [{}] });
+
+                expect(actualMessage).to.be(expectedMessage);
+            });
+
+            it('then a message is logged for verbose mode detailing he passing assertion', function() {
+                var actualMessage;
+                var expectedMessage = 'Assertion test passed, expected: 10, was: 15';
+                var eventEmitter = new EventEmitter();
+
+                grunt.verbose.ok = function(message) {
+                    if(message === expectedMessage) {
+                        actualMessage = message;
+                    }
+                };
+
+                new reporter(grunt, eventEmitter);
+
+                eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [], pass: [{
+                        name: 'test',
+                        expected: 10,
+                        actual: 15
+                    }]
+                });
 
                 expect(actualMessage).to.be(expectedMessage);
             });
