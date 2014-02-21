@@ -9,7 +9,7 @@
 'use strict';
 
 var Runner = require('../lib/juve-runner');
-var BasicReporter = require('../lib/reporters/grunt-basic');
+var BasicReporter = require('../lib/reporters/grunt');
 var _ = require('lodash');
 var juve = require('juve');
 

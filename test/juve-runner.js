@@ -135,6 +135,7 @@
             describe('given one passing test and one failing test with global assertion have been configured', function() {
                 var allResults;
                 var runner;
+                var emittedTestBeginDetails;
 
                 before(function(done) {
                     config = undefined;
@@ -144,6 +145,10 @@
 
                     runner.on('testResult', function(results) {
                         allResults.push(results);
+                    });
+
+                    runner.on('testBegin', function(details) {
+                        emittedTestBeginDetails = details;
                     });
 
                     runner.execute({
@@ -171,6 +176,18 @@
 
                     httpServer.setResponse('<!DOCTYPE html><html><head></head><body><h1>One</h1></body></html>', '/One');
                     httpServer.setResponse('<!DOCTYPE html><html><head></head><body><h1>Two</h1></body></html>', '/Two');
+                });
+
+                describe('then one testBegin event is emitted', function() {
+                    it('with the test details', function() {
+                        expect(emittedTestBeginDetails).to.eql({
+                            url: 'http://localhost:8000/Two',
+                            options: {
+                                trials: 1
+                            },
+                            htmlSize: 100
+                        });
+                    });
                 });
 
                 describe('then testResult event is emitted', function() {

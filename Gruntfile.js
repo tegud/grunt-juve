@@ -39,7 +39,7 @@ module.exports = function (grunt) {
             tests: [{
                 url: 'http://www.gruntjs.com',
                 assertions: {
-                    htmlSize: 10
+                    htmlSize: 10310
                 }
             }]
         }

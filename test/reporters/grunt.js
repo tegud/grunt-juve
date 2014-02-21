@@ -270,4 +270,61 @@
             });
         });
     });
+
+    describe('given testRunComplete event is emitted', function() {
+        describe('and tests have passed', function() {
+            it('then log message indicates success', function() {
+                var actualMessage;
+                var expectedMessage = 'All performance tests passes.';
+                var eventEmitter = new EventEmitter();
+
+                grunt.log.ok = function(message) {
+                    actualMessage = message;
+                };
+
+                new reporter(grunt, eventEmitter);
+
+                eventEmitter.emit('testRunComplete', true);
+
+                expect(actualMessage).to.be(expectedMessage);
+            });
+        });
+
+        describe('and tests have failed', function() {
+            it('then log message indicates failure', function() {
+                var actualMessage;
+                var expectedMessage = 'Performance tests failed.';
+                var eventEmitter = new EventEmitter();
+
+                grunt.fail.warn = function(message) {
+                    actualMessage = message;
+                };
+
+                new reporter(grunt, eventEmitter);
+
+                eventEmitter.emit('testRunComplete', false);
+
+                expect(actualMessage).to.be(expectedMessage);
+            });
+
+            describe('and test one test fail event was emitted before', function() {
+                it('then message indicates one failure', function() {
+                    var actualMessage;
+                    var expectedMessage = '1/1 Performance tests failed.';
+                    var eventEmitter = new EventEmitter();
+
+                    grunt.fail.warn = function(message) {
+                        actualMessage = message;
+                    };
+
+                    new reporter(grunt, eventEmitter);
+
+                    eventEmitter.emit('testResult', { url: 'http://www.google.com', fail: [{}], pass: [] });
+                    eventEmitter.emit('testRunComplete', false);
+
+                    expect(actualMessage).to.be(expectedMessage);
+                });
+            });
+        });
+    });
 })();
