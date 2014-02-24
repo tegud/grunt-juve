@@ -39,7 +39,7 @@ grunt.initConfig({
 })
 ```
 
-### The Blog Post
+## The Blog Post
 You can see more usage examples on the first blog post for the plugin: http://www.tegud.net/2014/02/18/introducing-grunt-juve/
 
 ## Contributing
