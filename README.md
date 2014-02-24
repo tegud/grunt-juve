@@ -39,6 +39,9 @@ grunt.initConfig({
 })
 ```
 
+### The Blog Post
+You can see more usage examples on the first blog post for the plugin: http://www.tegud.net/2014/02/18/introducing-grunt-juve/
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
