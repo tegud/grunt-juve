@@ -6,8 +6,6 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
-
 var Runner = require('../lib/juve-runner');
 var BasicReporter = require('../lib/reporters/grunt');
 var _ = require('lodash');
