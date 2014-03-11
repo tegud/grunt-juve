@@ -15,11 +15,15 @@ module.exports = function (grunt) {
         'Gruntfile.js',
         'tasks/*.js',
         'lib/**/*.js',
-        'tests/**/*.js'
+        'test/**/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
+        reporter: require('jshint-stylish'),
+        globals: [
+            'describe',
+            'it'
+        ]
       }
     },
     mochacli: {

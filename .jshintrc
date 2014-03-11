@@ -9,5 +9,20 @@
   "undef": true,
   "boss": true,
   "eqnull": true,
-  "node": true
+  "node": true,
+  "globals":{
+    "describe":true,
+    "beforeEach":true,
+    "before": true,
+    "afterEach":true,
+    "after": true,
+    "it":true,
+    "require":true,
+    "process":true,
+    "module":true,
+    "Buffer":true,
+    "setTimeout":true,
+    "setImmediate":true,
+    "__dirname":true
+  }
 }
